@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Add";
+}
+@model DepNameListAndStudentModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Add Student</h2>
+
+    <!-- Name -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.student.Name, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.student.Name, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.student.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Surname -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.student.Surname, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.student.Surname, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.student.Surname, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Age -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.student.Age, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.student.Age, new { htmlAttributes = new { @class = "form-control", @min = 16 } })
+        @Html.ValidationMessageFor(model => model.student.Age, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Department Dropdown List -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.student.Department, htmlAttributes: new { @class = "control-label" })
+        @Html.DropDownListFor(model => model.student.Department, new SelectList(Model.departmnetsNames),  new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.student.Department, "", new { @class = "text-danger" })
+    </div>
+
+    @Html.HiddenFor(model => model.departmnetsNames)
+
+    <!-- Submit Button -->
+    <div class="form-group">
+        <input type="submit" value="Add Student" class="btn btn-primary" />
+    </div>
+}
+    <script>
+    $(document).ready(function () {
+        $("#student_Age").on("change", function () {
+            if ($(this).val() < 16) {
+                $(this).val(16); 
+            }
+        });
+    });
+    </script>
+
+
+
+
+

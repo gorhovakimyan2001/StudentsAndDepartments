@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = "_StudentLayout";
+}
+
+@{
+    ViewBag.Title = "Edit Student";
+}
+
+@model DepNameListAndStudentModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        /* Style for form labels */
+        .form-group label {
+            font-weight: bold;
+        }
+
+        /* Style for form inputs */
+        .form-control {
+            width: 100%;
+            padding: 6px 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Style for buttons */
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #337ab7;
+            border-color: #2e6da4;
+        }
+    </style>
+</head>
+<body>
+    <h2>Edit Student</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.student.Name, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.student.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.student.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.student.Surname, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.student.Surname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.student.Surname, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.student.Age, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(model => model.student.Age, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.student.Age, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+             @Html.LabelFor(model => model.student.Department, htmlAttributes: new { @class = "control-label" })
+             @Html.DropDownListFor(model => model.student.Department, new SelectList(Model.departmnetsNames),  new { @class = "form-control" })
+             @Html.ValidationMessageFor(model => model.student.Department, "", new { @class = "text-danger" })
+        </div>
+
+        @Html.HiddenFor(model => model.student.ID)
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    }
+
+     
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿@{
+    ViewBag.Title = "Delete";
+}
+
+@model DepListModel
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+
+    <style>
+        /* CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+
+
+<body>
+    @using (Html.BeginForm())
+    {
+        <form method="post" action="@Url.Action("DeleteDepartment", "DepartmentController")">
+
+            <p>Choose an option:</p>
+            <label>
+                <input type="radio" name="deletionOption" value="deleteAll" checked onchange="disableDropdown()" /> Delete all students
+            </label>
+            <br />
+            <label>
+                <input type="radio" name="deletionOption" value="relocate" onchange="enableDropdown()" /> Relocate students to:
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ChangedDepName, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.ChangedDepName, new SelectList(Model.ExistingDepsNames), new { @class = "form-control", id = "ddlDepName", disabled = "disabled" })
+                    @Html.ValidationMessageFor(model => model.ChangedDepName, "", new { @class = "text-danger" })
+                </div>
+            </label>
+
+            @Html.HiddenFor(model => model.DeletedDep.ID)
+
+            <div>
+                <button type="submit">Delete Department</button>
+                <button type="submit" asp-controller="Department" asp-action="Index">Cancel</button>
+            </div>
+        </form>
+    }
+
+    <script>
+        function enableDropdown() {
+            document.getElementById("ddlDepName").removeAttribute("disabled");
+        }
+
+        function disableDropdown() {
+            document.getElementById("ddlDepName").setAttribute("disabled", "disabled");
+        }
+    </script>
+</body>
+</html>

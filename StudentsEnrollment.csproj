@@ -1,0 +1,60 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-StudentsEnrollment-A0F9C59F-C1DE-4C54-8CD0-E482BCEC902D</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\bootstrap.css" />
+    <None Include="wwwroot\css\font-awesome.min.css" />
+    <None Include="wwwroot\css\responsive.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\css\style.css.map" />
+    <None Include="wwwroot\css\style.scss" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\Helvetica\Helvetica-Bold.ttf" />
+    <None Include="wwwroot\fonts\Helvetica\Helvetica.ttf" />
+    <None Include="wwwroot\fonts\Helvetica\HelveticaLt.ttf" />
+    <None Include="wwwroot\images\about-img.jpg" />
+    <None Include="wwwroot\images\client-bg.jpg" />
+    <None Include="wwwroot\images\client-img1.jpg" />
+    <None Include="wwwroot\images\client-img2.jpg" />
+    <None Include="wwwroot\images\feature_number_bg_color.png" />
+    <None Include="wwwroot\images\feature_number_bg_white.png" />
+    <None Include="wwwroot\images\help-img.jpg" />
+    <None Include="wwwroot\images\nav-bullet.png" />
+    <None Include="wwwroot\images\news-img.jpg" />
+    <None Include="wwwroot\images\slider-img.jpg" />
+    <None Include="wwwroot\images\slider-img2.jpg" />
+    <None Include="wwwroot\images\slider-img3.jpg" />
+    <None Include="wwwroot\images\wedo-img-bg1.png" />
+    <None Include="wwwroot\images\wedo-img-bg2.png" />
+    <None Include="wwwroot\images\wedo-img1.png" />
+    <None Include="wwwroot\images\wedo-img2.png" />
+    <None Include="wwwroot\images\wedo-img3.png" />
+    <None Include="wwwroot\images\wedo-img4.png" />
+    <None Include="wwwroot\js\bootstrap.js" />
+    <None Include="wwwroot\js\custom.js" />
+    <None Include="wwwroot\js\jquery-3.4.1.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+</Project>
